@@ -1,0 +1,243 @@
+from tkinter import * 
+import RPi.GPIO as GPIO
+import time
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(10,GPIO.OUT)
+ 
+root = Tk()
+ 
+def returnEntry(arg=None):
+    
+    """Returning the result from Entry to the label"""
+    result = personEntry.get()
+    list_of_letters = list(result.upper())
+    for  all in list_of_letters:
+     morse_letters(all)
+    resultLabel.config(text=result)
+    personEntry.delete(0,END)
+ 
+# Entry widget
+personEntry = Entry(root, width=20)
+personEntry.focus()
+personEntry.bind("<Return>",returnEntry)
+personEntry.pack()
+ 
+ 
+ 
+ 
+ 
+ 
+# Creation of Enter button
+insert = Button(root, text= "SUBMIT", command=returnEntry)
+insert.pack(fill=X)
+ 
+ 
+
+resultLabel = Label(root, text = "")
+resultLabel.pack(fill=X)
+
+
+def dot():
+    GPIO.output(10,GPIO.HIGH)
+    time.sleep(1.0)
+    GPIO.output(10,GPIO.LOW)
+
+
+def dash():
+    GPIO.output(10,GPIO.HIGH)
+    time.sleep(3)
+    GPIO.output(10,GPIO.LOW)
+
+def morse_letters(letter):
+
+    if letter == "A":
+        dot()
+        time.sleep(1.0)
+        dash()
+
+    elif letter == "B":
+        dash()
+        time.sleep(1.0)
+        dot()
+        time.sleep(1.0)
+        dot()
+        time.sleep(1.0)
+        dot()
+
+    elif letter == "C":
+        dash()
+        time.sleep(1.0)
+        dot()
+        time.sleep(1.0)
+        dash()
+        time.sleep(1.0)
+        dot()
+
+    elif letter == "D":
+        dash()
+        time.sleep(1.0)
+        dot()
+        time.sleep(1.0)
+        dot()
+
+    elif letter == "E":
+        dot()
+
+    elif letter == "F":
+        dot()
+        time.sleep(1.0)
+        dot()
+        time.sleep(1.0)
+        dash()
+        time.sleep(1.0)
+        dot()
+
+    elif letter == "G":
+        dash()
+        time.sleep(1.0)
+        dash()
+        time.sleep(1.0)
+        dot()
+
+    elif letter == "H":
+        dot()
+        time.sleep(1.0)
+        dot()
+        time.sleep(1.0)
+        dot()
+        time.sleep(1.0)
+        dot()
+
+    elif letter == "I":
+        dot()
+        time.sleep(1.0)
+        dot()
+
+    elif letter == "J":
+        dot()
+        time.sleep(1.0)
+        dash()
+        time.sleep(1.0)
+        dash()
+        time.sleep(1.0)
+        dash()
+
+    elif letter == "K":
+        dash()
+        time.sleep(1.0)
+        dot()
+        time.sleep(1.0)
+        dash()
+        time.sleep(1.0)
+
+    elif letter == "L":
+        dot()
+        time.sleep(1.0)
+        dash()
+        time.sleep(1.0)
+        dot()
+        time.sleep(1.0)
+        dot()
+
+    elif letter == "M":
+        dash()
+        time.sleep(1.0)
+        dash()
+
+    elif letter == "N":
+        dash()
+        time.sleep(1.0)
+        dot()
+
+    elif letter == "O":
+        dash()
+        time.sleep(1.0)
+        dash()
+        time.sleep(1.0)
+        dash()
+
+    elif letter == "P":
+        dot()
+        time.sleep(1.0)
+        dash()
+        time.sleep(1.0)
+        dash()
+        time.sleep(1.0)
+        dot()
+
+    elif letter == "Q":
+        dash()
+        time.sleep(1.0)
+        dash()
+        time.sleep(1.0)
+        dot()
+        time.sleep(1.0)
+        dash()
+
+    elif letter == "R":
+        dot()
+        time.sleep(1.0)
+        dash()
+        time.sleep(1.0)
+        dot()
+
+    elif letter == "S":
+        dot()
+        time.sleep(1.0)
+        dot()
+        time.sleep(1.0)
+        dot()
+
+    elif letter == "T":
+        dash()
+
+    elif letter == "U":
+        dot()
+        time.sleep(1.0)
+        dot()
+        time.sleep(1.0)
+        dash()
+
+    elif letter == "V":
+        dot()
+        time.sleep(1.0)
+        dot()
+        time.sleep(1.0)
+        dot()
+        time.sleep(1.0)
+        dash()
+
+    elif letter == "W":
+        dot()
+        time.sleep(1.0)
+        dash()
+        time.sleep(1.0)
+        dash()
+
+    elif letter == "X":
+        dash()
+        time.sleep(1.0)
+        dot()
+        time.sleep(1.0)
+        dot()
+        time.sleep(1.0)
+        dash()
+
+    elif letter == "Y":
+        dash()
+        time.sleep(1.0)
+        dot()
+        time.sleep(1.0)
+        dash()
+        time.sleep(1.0)
+        dash()
+
+    elif letter == "Z":
+        dash()
+        time.sleep(1.0)
+        dash()
+        time.sleep(1.0)
+        dot()
+        time.sleep(1.0)
+        dot()
