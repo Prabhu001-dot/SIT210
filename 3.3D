@@ -1,0 +1,30 @@
+int Led=D7;
+
+void setup() {
+    pinMode(Led,OUTPUT);
+    
+    
+    
+}
+void blink(int delay_time){
+    digitalWrite(Led,HIGH);
+        delay(delay_time);
+        digitalWrite(Led,LOW);
+        delay(delay_time);
+}
+void loop(){
+    if(Particle.publish("Deakin_RIOT_SIT210_Photon_Buddy","pat")==true){
+        blink(1000);
+        blink(1000);
+        blink(1000);
+        blink(1000);
+    }
+    else if(Particle.publish("Deakin_RIOT_SIT210_Photon_Buddy","wave")==true){
+        blink(100);
+        blink(100);
+        blink(100);
+        
+        
+    }
+    delay(10000);
+}
