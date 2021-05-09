@@ -1,0 +1,49 @@
+int l1=D1;
+int l2=D2;
+
+int l3=D3;
+
+void setup() {
+    
+    //setting all the pin outputs
+    pinMode(l1,OUTPUT);
+    pinMode(l2,OUTPUT);
+    pinMode(l3,OUTPUT);
+    //particle function 0000000000000
+    Particle.function("led",ledToggle);
+    
+    //first turn all leds off!!
+    digitalWrite(l1,LOW);
+    digitalWrite(l2,LOW);
+    digitalWrite(l3,LOW);
+    
+}
+
+void loop() {
+    
+}
+int ledToggle(String command){
+    if(command=="on1"){
+        digitalWrite(l1,HIGH);
+        digitalWrite(l2,LOW);
+        digitalWrite(l3,LOW);
+        return 1;
+        
+    }
+    else if(command=="on2"){
+        digitalWrite(l1,LOW);
+        digitalWrite(l2,HIGH);
+        digitalWrite(l3,LOW);
+        return 0;
+    }
+    else if(command=="on3"){
+        digitalWrite(l1,LOW);
+        digitalWrite(l2,LOW);
+        digitalWrite(l3,HIGH);
+        return 0;
+        
+    }
+    else{
+        return -1;
+    }
+}
